@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Bubble Game</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div>
+            <h1 class="score">Score: 0</h1>
+        </div>
+
+        <div>
+            <div class="board">
+            </div>
+        </div>
+
+        <div>
+            <button class="btn start-btn">Start</button>
+            <button class="btn stop-btn">Stop</button>
+        </div>
+
+        <div class="level-section">
+            <p>Select level</p>
+            <div class="levels">
+                <input type="radio" id="easy" name="level" value="easy" checked>
+                <label for="easy">Easy</label><br>
+                <input type="radio" id="medium" name="level" value="medium">
+                <label for="medium">Medium</label><br>
+                <input type="radio" id="hard" name="level" value="hard">
+                <label for="hard">Hard</label><br>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
