@@ -9,49 +9,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Raleway:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
-        rel="stylesheet">
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Raleway:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+            rel="stylesheet">
     <title>Bubble Game</title>
 </head>
 
 <body>
-    <div class="container">
+<div class="container">
 
-        <div class="board"></div>
+    <div class="board"></div>
 
-        <div class="game-container">
-            <div>
-                <button class="btn start-btn">Start</button>
-                <button class="btn stop-btn">Stop</button>
-            </div>
+    <div class="game-container">
+        <div>
+            <button class="btn start-btn">Start</button>
+            <button class="btn stop-btn">Stop</button>
+        </div>
 
-            <div class="level-section">
-                <p>Select difficulty level</p>
-                <div class="levels">
-                    <input type="radio" id="easy" name="level" value="easy" checked>
-                    <label class="easy-label" for="easy">Easy</label><br>
-                    <input type="radio" id="medium" name="level" value="medium">
-                    <label class="medium-label" for="medium">Medium</label><br>
-                    <input type="radio" id="hard" name="level" value="hard">
-                    <label class="hard-label" for="hard">Hard</label><br>
+        <div class="level-section">
+            <p>Select difficulty level</p>
+            <form class="levels">
+                <input type="radio" id="easy" name="level" value="easy" checked>
+                <label id="easy-label" class="label" for="easy">Easy</label><br>
+                <input type="radio" id="medium" name="level" value="medium">
+                <label id="medium-label" class="label" for="medium">Medium</label><br>
+                <input type="radio" id="hard" name="level" value="hard">
+                <label id="hard-label" class="label" for="hard">Hard</label><br>
+            </form>
+        </div>
+
+        <div>
+            <p>Score: <span class="score">0</span></p>
+
+            <div class="score-board">
+                <div class="score-table">
+                    <p>Name</p>
+                    <p>Score</p>
                 </div>
-            </div>
-
-            <div>
-                <p>Score: <span class="score">0</span></p>
-
-                <div class="score-board">
-                    <div class="score-table">
-                        <p>Name</p>
-                        <p>Score</p>
-                    </div>
-                    <div class="border"></div>
-                </div>
+                <div class="border"></div>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="./app.js"></script>
+<script src="./app.js"></script>
 
 </body>
 
