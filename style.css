@@ -76,17 +76,13 @@ label {
     cursor: pointer;
 }
 
-label:hover {
-    border: 2px dotted rgb(192, 83, 97);
-}
-
 .active-btn {
     border: 2px dotted rgb(192, 83, 97);
 }
 
-/*input[type="radio"]:hover + label {*/
-/*    border: 2px dotted rgb(192, 83, 97);*/
-/*}*/
+input[type="radio"]:hover + label {
+    border: 2px dotted rgb(192, 83, 97);
+}
 
 .score-board {
     margin-top: 20px;
