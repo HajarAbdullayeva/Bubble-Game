@@ -50,6 +50,7 @@ let createBubble = (value) => {
     });
 
     if (activeBubble > 50) {
+        alert("Game over, dude")
         stopGame();
     }
 };
