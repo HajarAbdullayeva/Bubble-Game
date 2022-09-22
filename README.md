@@ -1,4 +1,4 @@
-# Bubble-Game
+# Bubble Game
 Bubble game - https://hajarabdullayeva.github.io/bubble-game/
 
 There are three modes in this game (easy, medium, and challenging ways). When you click the start button, bubbles appear on the board. If you click bubble, it bursts.
