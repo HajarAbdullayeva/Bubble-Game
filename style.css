@@ -1,113 +1,144 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 24px;
-    font-weight: 500;
-    font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
 }
 
 .container {
-    padding: 50px;
-    display: flex;
-    gap: 60px;
+  padding: 50px;
+  display: flex;
+  gap: 60px;
 }
 
 .board {
-    width: 700px;
-    height: 500px;
-    border: 3px solid #aabbcc;
-    position: relative;
+  width: 700px;
+  height: 500px;
+  border: 3px solid #aabbcc;
+  position: relative;
 }
 
 .game-container {
-    padding: 20px;
+  padding: 20px;
 }
 
 .game-container > div:first-child {
-    text-align: center;
+  text-align: center;
 }
 
 .btn {
-    padding: 18px 36px;
-    border: none;
-    background-color: #aabbcc;
-    color: #000;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    font-family: "Raleway", sans-serif;
+  padding: 18px 36px;
+  border: none;
+  background-color: #aabbcc;
+  color: #000;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
 }
 
 .btn:disabled {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .level-section {
-    margin-top: 40px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  margin-top: 40px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .level-section p {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .levels {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 54px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 54px;
 }
 
 input {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 label {
-    text-transform: uppercase;
-    color: rgb(192, 83, 97);
-    padding: 15px;
-    cursor: pointer;
+  text-transform: uppercase;
+  color: rgb(192, 83, 97);
+  padding: 15px;
+  cursor: pointer;
 }
 
 .active-btn {
-    border: 2px dotted rgb(192, 83, 97);
+  border: 2px dotted rgb(192, 83, 97);
 }
 
 input[type="radio"]:hover + label {
-    border: 2px dotted rgb(192, 83, 97);
+  border: 2px dotted rgb(192, 83, 97);
 }
 
 .score-board {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .score-table {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 100px;
-    margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin-bottom: 5px;
 }
 
 .border {
-    width: 100%;
-    height: 1px;
-    background-color: rgb(192, 83, 97);
+  width: 100%;
+  height: 1px;
+  background-color: rgb(192, 83, 97);
 }
 
+/* .active {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(192, 83, 97);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+} */
+
 .active {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgb(192, 83, 97);
-    position: absolute;
-    top: 10px;
-    left: 10px;
+  animation: float 3.5s ease-in-out infinite;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: relative;
+
+  background: radial-gradient(
+    circle at 75% 30%,
+    rgb(43, 146, 224) 5px,
+    aqua 8%,
+    darkblue 60%,
+    aqua 100%
+  );
+  box-shadow: inset 0 0 20px #fff, inset 10px 0 46px #eaf5fc,
+    inset 88px 0px 60px #c2d8fe, inset -20px -60px 100px #fde9ea,
+    inset 0 50px 140px #fde9ea, 0 0 90px #fff;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }
