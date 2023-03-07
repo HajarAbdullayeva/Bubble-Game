@@ -18,8 +18,8 @@ let bubbleVoice = new Audio("./bubble-bursting-popping.mp3");
 let players = JSON.parse(localStorage.getItem("players")) || [];
 
 let gameModes = [
-  { easy: { duration: 1500, incrementCount: 3 } },
-  { medium: { duration: 1000, incrementCount: 2 } },
+  { easy: { duration: 500, incrementCount: 3 } },
+  { medium: { duration: 400, incrementCount: 2 } },
   { hard: { duration: 100, incrementCount: 1 } },
 ];
 
@@ -54,6 +54,12 @@ let createBubble = (value) => {
     stopGame();
   }
 };
+
+window.addEventListener("load", () => {
+  console.log("hh");
+  easy.checked = "checked";
+  easyLabel.classList.add("active-btn");
+});
 
 //! Activate level
 easy.addEventListener("click", () => {
