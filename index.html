@@ -16,22 +16,26 @@
 
   <body>
     <div class="signup">
-      <form class="level-section">
+      <form class="level-section" id="signup-form">
+        <label for="name">Enter your name</label>
+        <input type="text" name="name" id="name" />
+
         <p>Select difficulty level</p>
-        <input type="text" />
+        <div class="levels">
+          <input type="radio" id="easy" name="level" value="easy" checked />
+          <label id="easy-label" class="label" for="easy">Easy</label><br />
+          <input type="radio" id="medium" name="level" value="medium" />
+          <label id="medium-label" class="label" for="medium">Medium</label
+          ><br />
+          <input type="radio" id="hard" name="level" value="hard" />
+          <label id="hard-label" class="label" for="hard">Hard</label><br />
+        </div>
 
-        <input type="radio" id="easy" name="level" value="easy" checked />
-        <label id="easy-label" class="label" for="easy">Easy</label><br />
-        <input type="radio" id="medium" name="level" value="medium" />
-        <label id="medium-label" class="label" for="medium">Medium</label><br />
-        <input type="radio" id="hard" name="level" value="hard" />
-        <label id="hard-label" class="label" for="hard">Hard</label><br />
-
-        <button>Start</button>
+        <button class="btn" id="signup-start">Start</button>
       </form>
     </div>
 
-    <!-- <div class="container">
+    <div class="container">
       <div class="board"></div>
       <div class="game-container">
         <div>
@@ -55,16 +59,18 @@
         <div>
           <p>Score: <span class="score">0</span></p>
 
-          <div class="score-board">
-            <div class="score-table">
-              <p>Name</p>
-              <p>Score</p>
-            </div>
-            <div class="border"></div>
-          </div>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <script src="./app.js"></script>
   </body>

@@ -1,3 +1,8 @@
+const signup = document.querySelector(".signup");
+// const startSignup = document.querySelector("#signup-start");
+const signupForm = document.querySelector("#signup-form");
+const nameInput = document.querySelector("#name");
+const container = document.querySelector(".container");
 const board = document.querySelector(".board");
 const startBtn = document.querySelector(".start-btn");
 const stopBtn = document.querySelector(".stop-btn");
@@ -56,7 +61,6 @@ let createBubble = (value) => {
 };
 
 window.addEventListener("load", () => {
-  console.log("hh");
   easy.checked = "checked";
   easyLabel.classList.add("active-btn");
 });
@@ -79,21 +83,20 @@ hard.addEventListener("click", () => {
 });
 
 //! Start game
-const startGame = () => {
-  score.innerHTML = "";
-  count = 0;
+const startGame = (e) => {
+  e.preventDefault();
 
-  //! Game Continue
-  gameContinue = true;
+  //! Get username
+  if (!nameInput.value || nameInput.value.trim() === "") return;
+
+  username = nameInput.value;
+
+  signup.style.display = "none";
+  container.style.display = "flex";
 
   //! When game is started disable start button
   startBtn.disabled = true;
   stopBtn.disabled = false;
-
-  //! Get username
-  while (!username || username.trim() === "") {
-    username = prompt("Enter username");
-  }
 
   if (easy.checked) {
     easyLabel.classList.add("active-btn");
@@ -121,6 +124,49 @@ const startGame = () => {
   }
 };
 
+//! Continue game
+// const continueGame = () => {
+//   score.innerHTML = "";
+//   count = 0;
+
+//   //! Game Continue
+//   gameContinue = true;
+
+//   //! When game is started disable start button
+//   startBtn.disabled = true;
+//   stopBtn.disabled = false;
+
+//   //! Get username
+//   while (!username || username.trim() === "") {
+//     username = prompt("Enter username");
+//   }
+
+//   if (easy.checked) {
+//     easyLabel.classList.add("active-btn");
+//     hardLabel.classList.remove("active-btn");
+//     mediumLabel.classList.remove("active-btn");
+//     myInterval = setInterval(function () {
+//       createBubble(gameModes[0].easy);
+//     }, gameModes[0].easy.duration);
+//   }
+//   if (medium.checked) {
+//     mediumLabel.classList.add("active-btn");
+//     easyLabel.classList.remove("active-btn");
+//     hardLabel.classList.remove("active-btn");
+//     myInterval = setInterval(function () {
+//       createBubble(gameModes[1].medium);
+//     }, gameModes[1].medium.duration);
+//   }
+//   if (hard.checked) {
+//     hardLabel.classList.add("active-btn");
+//     easyLabel.classList.remove("active-btn");
+//     mediumLabel.classList.remove("active-btn");
+//     myInterval = setInterval(function () {
+//       createBubble(gameModes[2].hard);
+//     }, gameModes[2].hard.duration);
+//   }
+// };
+
 //! Write Local Storage
 const createUsers = () => {
   players.push({ username, count });
@@ -143,18 +189,20 @@ const stopGame = () => {
 const createTable = () => {
   let players = JSON.parse(localStorage.getItem("players")) || [];
   players.map((player) => {
-    const scoreTable = document.createElement("div");
-    scoreTable.classList.add("score-table");
-    const name = document.createElement("p");
-    name.innerText = player.username;
-    const score = document.createElement("p");
-    score.innerText = player.count;
-    scoreTable.appendChild(name);
-    scoreTable.appendChild(score);
-    scoreBoard.appendChild(scoreTable);
+    const tbody = document.querySelector("tbody");
+    const tr = document.createElement("tr");
+    const tname = document.createElement("td");
+    const tscore = document.createElement("td");
+    tname.innerText = player.username;
+    tscore.innerText = player.count;
+    tr.appendChild(tname);
+    tr.appendChild(tscore);
+    tbody.appendChild(tr);
   });
 };
 
 createTable();
-startBtn.addEventListener("click", () => startGame());
+// startBtn.addEventListener("click", () => continueGame());
+// startSignup.addEventListener("click", () => startGame());
+signupForm.addEventListener("submit", (e) => startGame(e));
 stopBtn.addEventListener("click", () => stopGame());
