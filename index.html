@@ -16,19 +16,31 @@
 
   <body>
     <div class="signup">
-      <form class="level-section" id="signup-form">
+      <form id="signup-form">
         <label for="name">Enter your name</label>
+        <br />
         <input type="text" name="name" id="name" />
 
         <p>Select difficulty level</p>
         <div class="levels">
-          <input type="radio" id="easy" name="level" value="easy" checked />
-          <label id="easy-label" class="label" for="easy">Easy</label><br />
-          <input type="radio" id="medium" name="level" value="medium" />
-          <label id="medium-label" class="label" for="medium">Medium</label
+          <input
+            type="radio"
+            id="signup-easy"
+            name="level"
+            value="easy"
+            checked
+          />
+          <label id="signup-easy-label" class="label" for="signup-easy"
+            >Easy</label
           ><br />
-          <input type="radio" id="hard" name="level" value="hard" />
-          <label id="hard-label" class="label" for="hard">Hard</label><br />
+          <input type="radio" id="signup-medium" name="level" value="medium" />
+          <label id="signup-medium-label" class="label" for="signup-medium"
+            >Medium</label
+          ><br />
+          <input type="radio" id="signup-hard" name="level" value="hard" />
+          <label id="signup-hard-label" class="label" for="signup-hard"
+            >Hard</label
+          ><br />
         </div>
 
         <button class="btn" id="signup-start">Start</button>
@@ -37,6 +49,7 @@
 
     <div class="container">
       <div class="board"></div>
+
       <div class="game-container">
         <div>
           <button class="btn start-btn">Start</button>

@@ -9,6 +9,7 @@ body {
   font-weight: 500;
   font-family: "Raleway", sans-serif;
   background-color: #093545;
+  color: #fff;
 }
 
 .signup {
@@ -16,32 +17,32 @@ body {
   align-items: center;
   justify-content: center;
   height: 90vh;
+  text-align: center;
+}
+
+label {
+  text-transform: uppercase;
+  color: rgb(192, 83, 97);
 }
 
 input[type="text"] {
-  visibility: visible;
   padding: 13px;
   width: 300px;
   border: none;
   background: #224957;
+  color: #fff;
   box-shadow: 0px 4px 4px 0px #00000040;
   border-radius: 10px;
-  color: #fff;
   outline: none;
   position: relative;
   font-size: 16px;
-  margin-bottom: 40px;
-}
-
-form p {
-  color: #fff;
+  margin: 25px 0 50px;
 }
 
 .btn {
   background: #20df7f;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  width: 300px;
   padding: 13px;
   border: none;
   font-size: 18px;
@@ -50,18 +51,50 @@ form p {
   transition: all 0.5s;
 }
 
+.signup .btn {
+  width: 300px;
+}
+
 button:hover {
   background: #129453;
   transform: scale(1.1);
 }
 
+.signup p {
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.levels {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+input[type="radio"] {
+  visibility: hidden;
+}
+
+.levels label {
+  padding: 15px;
+  cursor: pointer;
+}
+
+.active-btn {
+  border: 2px dotted rgb(192, 83, 97);
+}
+
+input[type="radio"]:hover + label {
+  border: 2px dotted rgb(192, 83, 97);
+}
+
 .container {
+  display: none;
   width: 1440px;
   margin: 0 auto;
   align-items: center;
   justify-content: space-around;
-  /* gap: 60px; */
-  display: none;
 }
 
 .board {
@@ -81,44 +114,6 @@ button:hover {
 
 .btn:disabled {
   opacity: 0.5;
-}
-
-.level-section {
-  margin-top: 40px;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.level-section p {
-  text-transform: uppercase;
-}
-
-.levels {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 54px;
-}
-
-input {
-  visibility: hidden;
-}
-
-label {
-  text-transform: uppercase;
-  color: rgb(192, 83, 97);
-  padding: 15px;
-  cursor: pointer;
-}
-
-.active-btn {
-  border: 2px dotted rgb(192, 83, 97);
-}
-
-input[type="radio"]:hover + label {
-  border: 2px dotted rgb(192, 83, 97);
 }
 
 .active {
@@ -150,4 +145,9 @@ input[type="radio"]:hover + label {
   100% {
     transform: translatey(0px);
   }
+}
+
+th,
+td {
+  padding: 10px;
 }
