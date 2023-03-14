@@ -228,7 +228,11 @@ showTable.addEventListener("click", () => {
 });
 
 //! Reset LocalStorage
-resetTable.addEventListener("click", () => localStorage.clear());
+resetTable.addEventListener("click", () => {
+  localStorage.clear();
+  table.innerHTML = "";
+  createTable();
+});
 
 createTable();
 signupForm.addEventListener("submit", (e) => startGame(e));

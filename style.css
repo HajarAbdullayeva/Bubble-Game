@@ -97,7 +97,7 @@ input[type="radio"]:hover + label {
 }
 
 .container {
-  /* display: none  ; */
+  display: none  ;
   width: 1440px;
   margin: 5rem auto;
 }
