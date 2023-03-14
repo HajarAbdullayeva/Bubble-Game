@@ -22,6 +22,7 @@ const hardLabel = document.querySelector("#hard-label");
 const showTable = document.querySelector(".show-table");
 const tableContainer = document.querySelector(".table-container");
 const table = document.querySelector("table");
+const resetTable = document.querySelector(".reset-table");
 
 let count = 0;
 let username;
@@ -225,6 +226,9 @@ const stopGame = () => {
 showTable.addEventListener("click", () => {
   tableContainer.classList.toggle("active-table");
 });
+
+//! Reset LocalStorage
+resetTable.addEventListener("click", () => localStorage.clear());
 
 createTable();
 signupForm.addEventListener("submit", (e) => startGame(e));

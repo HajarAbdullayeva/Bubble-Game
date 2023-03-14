@@ -60,7 +60,7 @@ input[type="text"] {
   width: 300px;
 }
 
-button:hover {
+.btn:hover {
   background: #129453;
   transform: scale(1.1);
 }
