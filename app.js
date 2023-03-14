@@ -19,6 +19,8 @@ const hard = document.querySelector("#hard");
 const easyLabel = document.querySelector("#easy-label");
 const mediumLabel = document.querySelector("#medium-label");
 const hardLabel = document.querySelector("#hard-label");
+const showTable = document.querySelector(".show-table");
+const tableContainer = document.querySelector(".table-container");
 const table = document.querySelector("table");
 
 let count = 0;
@@ -115,7 +117,7 @@ const startGame = (e) => {
   username = nameInput.value;
 
   signup.style.display = "none";
-  container.style.display = "flex";
+  container.style.display = "block";
 
   //! When game is started disable start button
   startBtn.disabled = true;
@@ -218,6 +220,11 @@ const stopGame = () => {
   table.innerHTML = "";
   createTable();
 };
+
+//! Show Table
+showTable.addEventListener("click", () => {
+  tableContainer.classList.toggle("active-table");
+});
 
 createTable();
 signupForm.addEventListener("submit", (e) => startGame(e));

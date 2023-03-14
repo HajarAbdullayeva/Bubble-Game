@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <div class="signup">
+    <div class="signup" style="display: none">
       <form id="signup-form">
         <label for="name">Enter your name</label>
         <br />
@@ -48,17 +48,13 @@
     </div>
 
     <div class="container">
-      <div class="board"></div>
-
       <div class="game-container">
-        <div>
-          <button class="btn start-btn">Start</button>
-          <button class="btn stop-btn">Stop</button>
-        </div>
+        <p>Score: <span class="score">0</span></p>
 
-        <div class="level-section">
+        <form>
           <p>Select difficulty level</p>
-          <form class="levels">
+
+          <div class="levels">
             <input type="radio" id="easy" name="level" value="easy" checked />
             <label id="easy-label" class="label" for="easy">Easy</label><br />
             <input type="radio" id="medium" name="level" value="medium" />
@@ -66,11 +62,18 @@
             ><br />
             <input type="radio" id="hard" name="level" value="hard" />
             <label id="hard-label" class="label" for="hard">Hard</label><br />
-          </form>
-        </div>
+          </div>
+        </form>
 
         <div>
-          <p>Score: <span class="score">0</span></p>
+          <button class="btn start-btn">Start</button>
+          <button class="btn stop-btn">Stop</button>
+        </div>
+
+        <div class="show-table">Show Score Table</div>
+
+        <div class="table-container">
+          <div class="btn">Reset Table</div>
 
           <table border="1">
             <thead>
@@ -83,6 +86,8 @@
           </table>
         </div>
       </div>
+
+      <div class="board"></div>
     </div>
 
     <script src="./app.js"></script>
