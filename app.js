@@ -23,6 +23,7 @@ const showTable = document.querySelector(".show-table");
 const tableContainer = document.querySelector(".table-container");
 const table = document.querySelector("table");
 const resetTable = document.querySelector(".reset-table");
+const myTbody = document.querySelector("tbody");
 
 let count = 0;
 let username;
@@ -218,7 +219,7 @@ const stopGame = () => {
   board.innerHTML = "";
   createUsers();
   clearInterval(myInterval);
-  table.innerHTML = "";
+  myTbody.innerHTML = "";
   createTable();
 };
 
@@ -230,7 +231,7 @@ showTable.addEventListener("click", () => {
 //! Reset LocalStorage
 resetTable.addEventListener("click", () => {
   localStorage.clear();
-  table.innerHTML = "";
+  myTbody.innerHTML = "";
   createTable();
 });
 
