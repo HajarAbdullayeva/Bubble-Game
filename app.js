@@ -33,206 +33,209 @@ let bubbleVoice = new Audio("./bubble-bursting-popping.mp3");
 let players = JSON.parse(localStorage.getItem("players")) || [];
 
 let gameModes = [
-  { easy: { duration: 500, incrementCount: 1 } },
-  { medium: { duration: 400, incrementCount: 2 } },
-  { hard: { duration: 200, incrementCount: 3 } },
+    { easy: { duration: 500, incrementCount: 1 } },
+    { medium: { duration: 400, incrementCount: 2 } },
+    { hard: { duration: 200, incrementCount: 3 } },
 ];
 
 stopBtn.disabled = true;
 
 //! Create bubble
 let createBubble = (value) => {
-  let bubble = document.createElement("div");
-  bubble.classList.add("bubble");
-  board.appendChild(bubble);
-  bubble.classList.add("active");
+    let bubble = document.createElement("div");
+    bubble.classList.add("bubble");
+    board.appendChild(bubble);
+    bubble.classList.add("active");
 
-  let activeBubble = document.querySelectorAll(".active").length;
+    let activeBubble = document.querySelectorAll(".active").length;
 
-  //! Get board width and height
-  let winWidth = board.clientWidth; //--> width content-box
-  let winHeight = board.clientHeight; //--> height content-box
+    //! Get board width and height
+    let winWidth = board.clientWidth - 40; //--> width content-box
+    let winHeight = board.clientHeight - 40; //--> height content-box
 
-  //! Random place in a board
-  bubble.style.top = `${Math.floor(Math.random() * winHeight)}px`;
-  bubble.style.left = `${Math.floor(Math.random() * winWidth)}px`;
+    console.log(winHeight);
+    console.log(winWidth);
 
-  bubble.addEventListener("click", () => {
-    bubble.classList.remove("active");
-    bubbleVoice.play();
-    count += value.incrementCount;
-    score.textContent = count;
-  });
+    //! Random place in a board
+    bubble.style.top = `${Math.floor(Math.random() * winHeight)}px`;
+    bubble.style.left = `${Math.floor(Math.random() * winWidth)}px`;
 
-  if (activeBubble > 50) {
-    alert("Game over, dude");
-    stopGame();
-  }
+    bubble.addEventListener("click", () => {
+        bubble.classList.remove("active");
+        bubbleVoice.play();
+        count += value.incrementCount;
+        score.textContent = count;
+    });
+
+    if (activeBubble > 50) {
+        alert("Game over, dude");
+        stopGame();
+    }
 };
 
 window.addEventListener("load", () => {
-  signupEasy.checked = "checked";
-  signupEasyLabel.classList.add("active-btn");
+    signupEasy.checked = "checked";
+    signupEasyLabel.classList.add("active-btn");
 });
 
 //! Activate level
 signupEasy.addEventListener("click", () => {
-  signupEasyLabel.classList.add("active-btn");
-  signupMediumLabel.classList.remove("active-btn");
-  signupHardLabel.classList.remove("active-btn");
+    signupEasyLabel.classList.add("active-btn");
+    signupMediumLabel.classList.remove("active-btn");
+    signupHardLabel.classList.remove("active-btn");
 });
 signupMedium.addEventListener("click", () => {
-  signupMediumLabel.classList.add("active-btn");
-  signupEasyLabel.classList.remove("active-btn");
-  signupHardLabel.classList.remove("active-btn");
+    signupMediumLabel.classList.add("active-btn");
+    signupEasyLabel.classList.remove("active-btn");
+    signupHardLabel.classList.remove("active-btn");
 });
 signupHard.addEventListener("click", () => {
-  signupHardLabel.classList.add("active-btn");
-  signupEasyLabel.classList.remove("active-btn");
-  signupMediumLabel.classList.remove("active-btn");
+    signupHardLabel.classList.add("active-btn");
+    signupEasyLabel.classList.remove("active-btn");
+    signupMediumLabel.classList.remove("active-btn");
 });
 
 //! Activate level
 easy.addEventListener("click", () => {
-  easyLabel.classList.add("active-btn");
-  mediumLabel.classList.remove("active-btn");
-  hardLabel.classList.remove("active-btn");
+    easyLabel.classList.add("active-btn");
+    mediumLabel.classList.remove("active-btn");
+    hardLabel.classList.remove("active-btn");
 });
 medium.addEventListener("click", () => {
-  mediumLabel.classList.add("active-btn");
-  easyLabel.classList.remove("active-btn");
-  hardLabel.classList.remove("active-btn");
+    mediumLabel.classList.add("active-btn");
+    easyLabel.classList.remove("active-btn");
+    hardLabel.classList.remove("active-btn");
 });
 hard.addEventListener("click", () => {
-  hardLabel.classList.add("active-btn");
-  easyLabel.classList.remove("active-btn");
-  mediumLabel.classList.remove("active-btn");
+    hardLabel.classList.add("active-btn");
+    easyLabel.classList.remove("active-btn");
+    mediumLabel.classList.remove("active-btn");
 });
 
 //! Start game
 const startGame = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  //! Get username
-  if (!nameInput.value || nameInput.value.trim() === "") return;
+    //! Get username
+    if (!nameInput.value || nameInput.value.trim() === "") return;
 
-  username = nameInput.value;
+    username = nameInput.value;
 
-  signup.style.display = "none";
-  container.style.display = "block";
+    signup.style.display = "none";
+    container.style.display = "block";
 
-  //! When game is started disable start button
-  startBtn.disabled = true;
-  stopBtn.disabled = false;
+    //! When game is started disable start button
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
 
-  if (signupEasy.checked) {
-    easyLabel.classList.add("active-btn");
-    hardLabel.classList.remove("active-btn");
-    mediumLabel.classList.remove("active-btn");
-    myInterval = setInterval(function () {
-      createBubble(gameModes[0].easy);
-    }, gameModes[0].easy.duration);
-  }
-  if (signupMedium.checked) {
-    mediumLabel.classList.add("active-btn");
-    easyLabel.classList.remove("active-btn");
-    hardLabel.classList.remove("active-btn");
-    myInterval = setInterval(function () {
-      createBubble(gameModes[1].medium);
-    }, gameModes[1].medium.duration);
-  }
-  if (signupHard.checked) {
-    hardLabel.classList.add("active-btn");
-    easyLabel.classList.remove("active-btn");
-    mediumLabel.classList.remove("active-btn");
-    myInterval = setInterval(function () {
-      createBubble(gameModes[2].hard);
-    }, gameModes[2].hard.duration);
-  }
+    if (signupEasy.checked) {
+        easyLabel.classList.add("active-btn");
+        hardLabel.classList.remove("active-btn");
+        mediumLabel.classList.remove("active-btn");
+        myInterval = setInterval(function () {
+            createBubble(gameModes[0].easy);
+        }, gameModes[0].easy.duration);
+    }
+    if (signupMedium.checked) {
+        mediumLabel.classList.add("active-btn");
+        easyLabel.classList.remove("active-btn");
+        hardLabel.classList.remove("active-btn");
+        myInterval = setInterval(function () {
+            createBubble(gameModes[1].medium);
+        }, gameModes[1].medium.duration);
+    }
+    if (signupHard.checked) {
+        hardLabel.classList.add("active-btn");
+        easyLabel.classList.remove("active-btn");
+        mediumLabel.classList.remove("active-btn");
+        myInterval = setInterval(function () {
+            createBubble(gameModes[2].hard);
+        }, gameModes[2].hard.duration);
+    }
 };
 
 //! Continue game
 const continueGame = () => {
-  score.innerHTML = "";
-  count = 0;
+    score.innerHTML = "";
+    count = 0;
 
-  //! Game Continue
-  gameContinue = true;
+    //! Game Continue
+    gameContinue = true;
 
-  //! When game is started disable start button
-  startBtn.disabled = true;
-  stopBtn.disabled = false;
+    //! When game is started disable start button
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
 
-  if (easy.checked) {
-    easyLabel.classList.add("active-btn");
-    hardLabel.classList.remove("active-btn");
-    mediumLabel.classList.remove("active-btn");
-    myInterval = setInterval(function () {
-      createBubble(gameModes[0].easy);
-    }, gameModes[0].easy.duration);
-  }
-  if (medium.checked) {
-    mediumLabel.classList.add("active-btn");
-    easyLabel.classList.remove("active-btn");
-    hardLabel.classList.remove("active-btn");
-    myInterval = setInterval(function () {
-      createBubble(gameModes[1].medium);
-    }, gameModes[1].medium.duration);
-  }
-  if (hard.checked) {
-    hardLabel.classList.add("active-btn");
-    easyLabel.classList.remove("active-btn");
-    mediumLabel.classList.remove("active-btn");
-    myInterval = setInterval(function () {
-      createBubble(gameModes[2].hard);
-    }, gameModes[2].hard.duration);
-  }
+    if (easy.checked) {
+        easyLabel.classList.add("active-btn");
+        hardLabel.classList.remove("active-btn");
+        mediumLabel.classList.remove("active-btn");
+        myInterval = setInterval(function () {
+            createBubble(gameModes[0].easy);
+        }, gameModes[0].easy.duration);
+    }
+    if (medium.checked) {
+        mediumLabel.classList.add("active-btn");
+        easyLabel.classList.remove("active-btn");
+        hardLabel.classList.remove("active-btn");
+        myInterval = setInterval(function () {
+            createBubble(gameModes[1].medium);
+        }, gameModes[1].medium.duration);
+    }
+    if (hard.checked) {
+        hardLabel.classList.add("active-btn");
+        easyLabel.classList.remove("active-btn");
+        mediumLabel.classList.remove("active-btn");
+        myInterval = setInterval(function () {
+            createBubble(gameModes[2].hard);
+        }, gameModes[2].hard.duration);
+    }
 };
 
 //! Write Local Storage
 const createUsers = () => {
-  players.push({ username, count });
-  localStorage.setItem("players", JSON.stringify(players));
+    players.push({ username, count });
+    localStorage.setItem("players", JSON.stringify(players));
 };
 
 //! Create Player Table
 const createTable = () => {
-  let players = JSON.parse(localStorage.getItem("players")) || [];
-  players.map((player) => {
-    const tbody = document.querySelector("tbody");
-    const tr = document.createElement("tr");
-    const tname = document.createElement("td");
-    const tscore = document.createElement("td");
-    tname.innerText = player.username;
-    tscore.innerText = player.count;
-    tr.appendChild(tname);
-    tr.appendChild(tscore);
-    tbody.appendChild(tr);
-  });
+    let players = JSON.parse(localStorage.getItem("players")) || [];
+    players.map((player) => {
+        const tbody = document.querySelector("tbody");
+        const tr = document.createElement("tr");
+        const tname = document.createElement("td");
+        const tscore = document.createElement("td");
+        tname.innerText = player.username;
+        tscore.innerText = player.count;
+        tr.appendChild(tname);
+        tr.appendChild(tscore);
+        tbody.appendChild(tr);
+    });
 };
 
 //! Stop game
 const stopGame = () => {
-  gameContinue = false;
-  startBtn.disabled = false;
-  stopBtn.disabled = true;
-  board.innerHTML = "";
-  createUsers();
-  clearInterval(myInterval);
-  myTbody.innerHTML = "";
-  createTable();
+    gameContinue = false;
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+    board.innerHTML = "";
+    createUsers();
+    clearInterval(myInterval);
+    myTbody.innerHTML = "";
+    createTable();
 };
 
 //! Show Table
 showTable.addEventListener("click", () => {
-  tableContainer.classList.toggle("active-table");
+    tableContainer.classList.toggle("active-table");
 });
 
 //! Reset LocalStorage
 resetTable.addEventListener("click", () => {
-  localStorage.clear();
-  myTbody.innerHTML = "";
-  createTable();
+    localStorage.clear();
+    myTbody.innerHTML = "";
+    createTable();
 });
 
 createTable();
