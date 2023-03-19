@@ -48,27 +48,8 @@
     </div>
 
     <div class="container">
-      <div class="game-container">
+      <div class="score-container">
         <p>Score: <span class="score">0</span></p>
-
-        <form>
-          <p>Select difficulty level</p>
-
-          <div class="levels">
-            <input type="radio" id="easy" name="level" value="easy" checked />
-            <label id="easy-label" class="label" for="easy">Easy</label><br />
-            <input type="radio" id="medium" name="level" value="medium" />
-            <label id="medium-label" class="label" for="medium">Medium</label
-            ><br />
-            <input type="radio" id="hard" name="level" value="hard" />
-            <label id="hard-label" class="label" for="hard">Hard</label><br />
-          </div>
-        </form>
-
-        <div>
-          <button class="btn start-btn">Start</button>
-          <button class="btn stop-btn">Stop</button>
-        </div>
 
         <div class="show-table">Show Score Table</div>
 
@@ -87,7 +68,30 @@
         </div>
       </div>
 
-      <div class="board"></div>
+      <div class="game-container">
+        <div class="board"></div>
+
+        <div>
+          <form>
+            <!-- <p>Select difficulty level</p> -->
+
+            <div class="levels">
+              <input type="radio" id="easy" name="level" value="easy" checked />
+              <label id="easy-label" class="label" for="easy">Easy</label><br />
+              <input type="radio" id="medium" name="level" value="medium" />
+              <label id="medium-label" class="label" for="medium">Medium</label
+              ><br />
+              <input type="radio" id="hard" name="level" value="hard" />
+              <label id="hard-label" class="label" for="hard">Hard</label><br />
+            </div>
+          </form>
+
+          <!-- <div> -->
+          <button class="btn start-btn">Start</button>
+          <button class="btn stop-btn">Stop</button>
+          <!-- </div> -->
+        </div>
+      </div>
     </div>
 
     <script src="./app.js"></script>

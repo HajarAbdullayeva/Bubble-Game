@@ -99,7 +99,7 @@ input[type="radio"]:hover + label {
 .container {
   display: none;
   width: 1440px;
-  margin: 5rem auto;
+  margin: 2rem auto;
 }
 
 th,
@@ -110,11 +110,19 @@ td {
 .game-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .game-container form {
   text-align: center;
+}
+
+.game-container .levels {
+  display: block;
+}
+
+.game-container input {
+  margin-top: 50px;
 }
 
 .btn:disabled {
@@ -144,6 +152,9 @@ td {
   right: -245px;
   top: 150px;
   transition: all 0.5s;
+
+  background-color: #093545;
+  padding: var(--padding);
 }
 
 .active-table {
@@ -156,8 +167,7 @@ td {
 }
 
 .board {
-  width: 80vw;
-  /* width: 700px; */
+  width: 900px;
   height: 500px;
   border: 3px solid #aabbcc;
   position: relative;
