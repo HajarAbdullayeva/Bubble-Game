@@ -10,3 +10,12 @@ Limit of non-exploded bubbles (50)
 Different scores depending on modes
 Different intervals depending on modes
 
+### Built with
+
+- Semantic HTML5 markup
+- Javascript
+- React
+
+## Author
+
+- GitHub - [Hajar Abdullayeva](https://github.com/hajarabdullayeva)
