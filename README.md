@@ -14,7 +14,6 @@ Different intervals depending on modes
 
 - Semantic HTML5 markup
 - Javascript
-- React
 
 ## Author
 
